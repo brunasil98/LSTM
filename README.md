@@ -1,4 +1,4 @@
-#MACHINE LEARNING-BASED SIMULATION OF CARDIAC ELECTROPHYSIOLOGY
+MACHINE LEARNING-BASED SIMULATION OF CARDIAC ELECTROPHYSIOLOGY
 
  Over the years, various attempts have been made towards explaining and reproducing the electrical activity of the heart. A variety of models has been proposed, ranging from mechanistic to empirical, and considering the heart at the cellular level through to tissues or even the organ as a whole. While some of these models answered some “big questions” in the field, one major challenge that persists is the computational complexity of these models. With the emergence of deep learning techniques, it has become relatively easy to build and deploy empirical “data-driven” models. This offers a wealth of opportunities for gaining new insight into the workings of the heart that current models are unable to offer.
 
