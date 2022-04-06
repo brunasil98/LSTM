@@ -13,15 +13,6 @@ DLSTM consists of multiple cascaded LSTM layers operating at different time scal
 2014). This method can perform an ordered process for capturing data patterns in a complex temporal task. 
 We utilized two different DLSTM architectures to compare the performance of AP time series prediction.
 
-The LSTM model developed by Hochreiter et al. (Hochreiter & Schmidhuber, 1997) solved the vanishing 
-gradient problem of RNNs that improved the long-term memory of the network. In our design, the AP 
-time series information is stored in more than 1000 discrete time steps using a cell state (memory cell). 
-The cell state runs for an entire time step and works as a bridge with the ability to add or remove 
-information in the cell state, carefully managed by structures called gates. There are 3 different gates in an 
-LSTM cell (see Figure below): forget gate (𝑓𝑡), input gate (𝑖𝑡), and output gate (𝑜𝑡). The output of an LSTM 
-cell is the hidden state (ℎ𝑡) which is used as an additional input for the next cell.
-![image](https://user-images.githubusercontent.com/75848451/161892207-f2875b8e-905c-4dd1-b9ae-384d0cb35425.png)
-
 Our deep neural network architecture uses a combination of LSTM layers, dropout (to decrease 
 overfitting), and fully connected dense layers. To achieve the most effective network, we implemented
 two different architectures. The first architecture used two back-to-back LSTM layers followed by three fully-connected dense layers. This network will be referred to as DLSTM2. The second architecture, shown in Figure 3B, composed of three back-to-back LSTM layers, one dropout, and three fully-connected dense layers. This network will be referred to as DLSTM3.
