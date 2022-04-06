@@ -31,8 +31,9 @@ models when compared with the Akwaboah et al. model (Akwaboah et al., 2021). MAP
 
 ![image](https://user-images.githubusercontent.com/75848451/161892923-c4a2f961-7938-4624-a469-419420ae85f0.png)
 
-The Figuressbelow representative examples of the AP produced by the DLSTM models for various scaling of ionic currents. The predictions of DLSTM3 model were smoother than the DLSTM2 model. However, in both models some noise was observed during AP plateau (Phase 2-3) and diastolic interval (Phase 0) despite Gaussian smoothing.
-![image](https://user-images.githubusercontent.com/75848451/161892969-23bc3812-16ed-4b19-9e36-1cdd45efaefc.png)
+The Figures below representative examples of the AP produced by the DLSTM models for various scaling of ionic currents. The predictions of DLSTM3 model were smoother than the DLSTM2 model. However, in both models some noise was observed during AP plateau (Phase 2-3) and diastolic interval (Phase 0) despite Gaussian smoothing.
+
+![image](https://user-images.githubusercontent.com/75848451/161893940-42ae66b3-3d03-4e86-bcc9-6a8de27c7bad.png)
 
 The models were trained with data from alterations in five main ionic current components that contribute to the action potentials in these cells. The model with 3 cascaded LSTM layers reproduce the action potential morphology with accuracy closer to 99%. These models were able to faithfully reproduce experimentally observed behaviors of ion channel blocks and drug interactions in cardiomyocytes. Further study should involve creating further finetuned models with the capacity to manipulate more currents, stimulus conditions, and refractory periods. 
 
