@@ -1,4 +1,4 @@
-# MACHINE LEARNING-BASED SIMULATION OF CARDIAC ELECTROPHYSIOLOGY
+# MODELING CARDIAC CELL BIOPHYSICS USING DEEP LONG-SHORT MEMORY NETWORKS 
 
 Accurate numerical biophysical models can be employed to elucidate mechanisms of cardiac rhythm 
 disorders and their clinical implications. The predictive modeling has been increasingly used to investigate 
