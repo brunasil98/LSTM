@@ -3,6 +3,8 @@ from scipy.ndimage import gaussian_filter1d
 from scipy.signal import peak_widths, find_peaks
 from sklearn.metrics import mean_absolute_percentage_error
 
+
+#Genererate APD50, APD, APD75 for the data
 def gaussian(data,w,i,ls_APD50, ls_APD75, ls_APD90, ls_APDall):
     sx = 0
     time = np.arange(0,4900,1)
@@ -82,13 +84,24 @@ def gaussian(data,w,i,ls_APD50, ls_APD75, ls_APD90, ls_APDall):
 
 
 def best_gausian(predicted):
+    
+    #Create Numpy and design value for c
     gaus = np.zeros((70,194,1,4900))
     c = 0
+    
+    #Values for sigma from 1 to 8 with step of 0.1
+    
     for a in np.arange(1,8,0.1):
         a = round(a,1)
+        
+    # Apply gaussian fiter with each value of sigma
+    
     for i in range(predicted.shape[0]):
         gaus[c][i] = gaussian_filter1d(predicted[i], sigma=a)
     c = c + 1
+    
+    # Create the Numpys
+    
     pred_apd50_ls = np.zeros((1,194))
     pred_apd75_ls = np.zeros((1,194))
     pred_apd90_ls = np.zeros((1,194))
@@ -103,7 +116,9 @@ def best_gausian(predicted):
     gau_apd75_ls = np.zeros((70,194))
     gau_apd90_ls = np.zeros((70,194))
     gau_apd_ls = np.zeros((70,582))
-
+    
+    #Generate the APDs values for each occasion calling the gaussian function 
+    
     for w in range(0,70):
         for i in range(predicted.shape[0]):
             pre = predicted[i].reshape(-1)
@@ -122,7 +137,9 @@ def best_gausian(predicted):
     MBPE_apd75_ga = []
     MBPE_apd90_ga = []
     MBPE_apd_ga = []
-
+    
+    # Calculate the Mean Absolute error for each value of APDs generated between prediction and actual
+    
     p = act_apd50_ls[0].tolist()
     q = pred_apd50_ls[0].tolist()
     MBPE_apd50_pa.append(mean_absolute_percentage_error(p,q))
@@ -139,6 +156,8 @@ def best_gausian(predicted):
     q = pred_apd_ls[0].tolist()
     MBPE_apd_pa.append(mean_absolute_percentage_error(p,q))
 
+    # Calculate the Mean Absolute error for each value of APDs generated between actual and each gaussian values
+    
     for k in range(0,70):
         p = act_apd50_ls[0].tolist()
         q = gau_apd50_ls[k].tolist()  
@@ -155,7 +174,9 @@ def best_gausian(predicted):
         p = act_apd_ls[0].tolist()
         q = gau_apd_ls[k].tolist()  
         MBPE_apd_ga.append(mean_absolute_percentage_error(p,q))
-
+    
+    #Find the best value of sigma for each APDs
+    
     Sigma_value_min_apd50 = MBPE_apd50_ga.index(min(MBPE_apd50_ga)) * 0.1 + 1 
     MBPE_apd50_ga = min(MBPE_apd50_ga)
     Sigma_value_min_apd75 = MBPE_apd75_ga.index(min(MBPE_apd75_ga))* 0.1 + 1 

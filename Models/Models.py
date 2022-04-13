@@ -1,9 +1,14 @@
+#Import Libraries
+
 from keras.models import Sequential 
 from keras.layers.core import Dense, Activation, Dropout 
 from keras.layers.recurrent import LSTM
 from keras.callbacks import EarlyStopping
 
 def model_2LSTM():
+    
+    # Define the hidden neuron
+    
     out_neurons = 7200
     hidden_neurons = 6200 
     hidden_neurons_2 = 5800
@@ -11,9 +16,9 @@ def model_2LSTM():
     hidden_neurons_4 = 4900
 
 
-    #Creating Model
+    #Create a Model
+    
     model = Sequential()  
-
     model.add(LSTM(out_neurons, input_dim=5, return_sequences=True)) 
     model.add(LSTM(hidden_neurons, return_sequences=True))
     model.add(Dense(hidden_neurons_2))
@@ -23,6 +28,9 @@ def model_2LSTM():
     return model
 
 def model_3LSTM():
+    
+    # Define the hidden neuron
+    
     out_neurons = 8400
     out_neurons_2 = 7800
     out_neurons_3 = 7400
@@ -32,9 +40,9 @@ def model_3LSTM():
     hidden_neurons_4 = 4900
 
 
-    #Creating Model
+    #Create a Model
+    
     model = Sequential()  
-
     model.add(LSTM(out_neurons, input_dim=5, return_sequences=True)) 
     model.add(LSTM(out_neurons_2, return_sequences=True))
     model.add(LSTM(out_neurons_3, return_sequences=True))
