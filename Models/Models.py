@@ -32,9 +32,8 @@ def model_3LSTM():
     # Define the hidden neuron
     
     out_neurons = 8400
-    out_neurons_2 = 7800
-    out_neurons_3 = 7400
-    dp = 0.2
+    out_neurons_2 = 7400
+    out_neurons_3 = 6400
     hidden_neurons_2 = 5800
     hidden_neurons_3 = 5350
     hidden_neurons_4 = 4900
@@ -46,7 +45,6 @@ def model_3LSTM():
     model.add(LSTM(out_neurons, input_dim=5, return_sequences=True)) 
     model.add(LSTM(out_neurons_2, return_sequences=True))
     model.add(LSTM(out_neurons_3, return_sequences=True))
-    model.add(Dropout(dp))
     model.add(Dense(hidden_neurons_2))
     model.add(Dense(hidden_neurons_3))
     model.add(Dense(hidden_neurons_4))
