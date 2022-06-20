@@ -1,6 +1,6 @@
 # Model Trained
 
-My model is saved in h5 file, however this is to heavy to put in a github.
+My model trained is saved in h5 file, however this is to heavy to put in a github.
 I located it in a google drive, link below.
 
 
